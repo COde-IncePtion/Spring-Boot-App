@@ -1,33 +1,26 @@
 package com.sample.services;
 
 import com.sample.models.Movie;
+import com.sample.repositories.MovieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class MovieService {
 
-    private List<Movie> _movies;
+    @Autowired
+    private MovieRepository movieRepository;
 
-    public MovieService() {
-        this._movies = new ArrayList<Movie>();
-        this._movies.addAll(Arrays.asList(
-                new Movie("Pirates Of The Carribean", 1, 120)
-                , new Movie("Sully", 2, 100)
-                , new Movie("Mean Girl", 3, 122)
-
-        ));
-    }
 
     public List<Movie> get_movies() {
-        return _movies;
+        return movieRepository.getAllMovies();
     }
 
-    public boolean add(Movie movie){
-        return _movies.add(movie);
+    public int add(Movie movie){
+        return movieRepository.add(movie);
     }
 
 }

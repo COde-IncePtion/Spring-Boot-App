@@ -2,21 +2,17 @@ package com.sample.models;
 
 
 import lombok.*;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Movie {
 
+    @BsonId
+    public ObjectId _id;
     public String name ;
-    public int id;
+    public int movieId;
     public int cost;
-
-    public Movie(String name, int id, int cost) {
-        this.name = name;
-        this.id = id;
-        this.cost=cost;
-    }
-    public Movie() {
-    }
 }

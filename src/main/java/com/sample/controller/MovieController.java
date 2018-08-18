@@ -23,7 +23,7 @@ public class MovieController {
     }
 
     @RequestMapping(method = RequestMethod.POST,value = "/movies")
-    public boolean addMovie(@RequestBody Movie movie)
+    public int addMovie(@RequestBody Movie movie)
     {
         return _movieService.add(movie);
     }
